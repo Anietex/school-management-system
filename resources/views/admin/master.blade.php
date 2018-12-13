@@ -36,14 +36,14 @@
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <li class="active ">
-                    <a href="#">
+                <li>
+                    <a href="{{url('admin/dashboard')}}">
                         <i class="now-ui-icons design_app"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{url('admin/teachers')}}">
                         <i class="now-ui-icons education_atom"></i>
                         <p>Teachers</p>
                     </a>
@@ -166,7 +166,16 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="title">@yield('title')</h3>
+
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <h3 class="title">@yield('title')</h3>
+                                </div>
+                                <div class="col-md-2">
+                                    @yield('action-button')
+                                </div>
+                            </div>
+
 
                         </div>
                         <div class="card-body">
@@ -206,6 +215,17 @@
         demo.initDashboardPageCharts();
 
     });
+
+    $(".sidebar-wrapper a").each(function (index,elm) {
+
+        if(window.location.href === elm.href){
+            $(elm).parent().addClass('active')
+        }
+    })
+
+    // alert()
+
+
 </script>
 </body>
 

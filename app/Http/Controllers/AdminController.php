@@ -8,8 +8,13 @@ class AdminController extends Controller
 {
 
 
+
     public function dashboard(){
 
         return view("admin.dashboard");
+    }
+
+    public function teachers(){
+        return view('admin.teachers');
     }
 }
