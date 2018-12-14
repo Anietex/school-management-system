@@ -61,7 +61,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#r">
+                    <a href="{{url('/admin/sessions')}}">
                         <i class="now-ui-icons users_single-02"></i>
                         <p>Sessions</p>
                     </a>

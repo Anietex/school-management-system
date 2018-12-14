@@ -23,6 +23,6 @@ Route::group(["prefix"=>"admin"],function(){
    Route::get("/teachers","AdminController@teachers");
    Route::get("/students","AdminController@students");
    Route::get("/classes","AdminController@classes");
-
+   Route::get("/sessions","AdminController@sessions");
 });
 

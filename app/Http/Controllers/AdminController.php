@@ -25,4 +25,9 @@ class AdminController extends Controller
     public function classes(){
         return view('admin.classes');
     }
+
+
+    public function sessions(){
+        return view('admin.sessions');
+    }
 }
