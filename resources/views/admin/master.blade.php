@@ -49,19 +49,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{url('/admin/students')}}">
                         <i class="now-ui-icons location_map-big"></i>
                         <p>Students</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{url('/admin/classes')}}">
                         <i class="now-ui-icons ui-1_bell-53"></i>
-                        <p>Courses</p>
+                        <p>Classes</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#r">
                         <i class="now-ui-icons users_single-02"></i>
                         <p>Sessions</p>
                     </a>
