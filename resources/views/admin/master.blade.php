@@ -67,9 +67,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./tables.html">
+                    <a href="{{url('/admin/subject_allocation')}}">
                         <i class="now-ui-icons design_bullet-list-67"></i>
-                        <p>Course Allocations</p>
+                        <p>Subject Allocations</p>
                     </a>
                 </li>
                 <li>
@@ -114,24 +114,24 @@
                     <span class="navbar-toggler-bar navbar-kebab"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                    <form>
-                        <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Search...">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <i class="now-ui-icons ui-1_zoom-bold"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                    {{--<form>--}}
+                        {{--<div class="input-group no-border">--}}
+                            {{--<input type="text" value="" class="form-control" placeholder="Search...">--}}
+                            {{--<div class="input-group-append">--}}
+                                {{--<div class="input-group-text">--}}
+                                    {{--<i class="now-ui-icons ui-1_zoom-bold"></i>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</form>--}}
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#pablo">
-                                <i class="now-ui-icons media-2_sound-wave"></i>
-                                <p>
-                                    <span class="d-lg-none d-md-block">Stats</span>
-                                </p>
-                            </a>
+                            {{--<a class="nav-link" href="#pablo">--}}
+                                {{--<i class="now-ui-icons media-2_sound-wave"></i>--}}
+                                {{--<p>--}}
+                                    {{--<span class="d-lg-none d-md-block">Stats</span>--}}
+                                {{--</p>--}}
+                            {{--</a>--}}
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

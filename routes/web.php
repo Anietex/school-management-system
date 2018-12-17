@@ -24,5 +24,7 @@ Route::group(["prefix"=>"admin"],function(){
    Route::get("/students","AdminController@students");
    Route::get("/classes","AdminController@classes");
    Route::get("/sessions","AdminController@sessions");
+   Route::get("/subject_allocation","AdminController@subjectAllocation");
+
 });
 

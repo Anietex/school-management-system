@@ -30,4 +30,9 @@ class AdminController extends Controller
     public function sessions(){
         return view('admin.sessions');
     }
+
+
+    public function subjectAllocation(){
+        return view('admin.subject_allocation');
+    }
 }
