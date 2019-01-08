@@ -13619,7 +13619,7 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   methods: {
     submitForm: function submitForm(event) {
       if (this.newRecord) {
-        this.addingTeacher(event);
+        this.addTeacher(event);
       } else {
         this.updateTeacher(event);
       }
@@ -13669,9 +13669,22 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       };
       $("#teachers-modal").modal("show");
     },
-    deleteTeacher: function deleteTeacher() {},
-    updateTeacher: function updateTeacher(event) {
+    deleteTeacher: function deleteTeacher(index) {
       var _this3 = this;
+
+      if (confirm("Do you want to delete student")) {
+        var teacher = this.teachers[index];
+        http.delete("teachers/" + teacher.id).then(function (res) {
+          _lib_Toast__WEBPACK_IMPORTED_MODULE_2__["default"].success("Record deleted successfully");
+
+          _this3.teachers.splice(index, 1);
+        }, function (err) {
+          _lib_Toast__WEBPACK_IMPORTED_MODULE_2__["default"].error("Oops something went wrong");
+        });
+      }
+    },
+    updateTeacher: function updateTeacher(event) {
+      var _this4 = this;
 
       this.addingTeacher = true;
       this.clearErrors();
@@ -13681,21 +13694,21 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         // this.teachers.unshift(res.data);
         // this.resetFormFields();
         // $('#teachers-modal').modal('hide');
-        _this3.$set(_this3.teachers, _this3.currentIndex, res.data);
+        _this4.$set(_this4.teachers, _this4.currentIndex, res.data);
 
         _lib_Toast__WEBPACK_IMPORTED_MODULE_2__["default"].success("Teacher was successfully updated");
       }, function (err) {
         if (err.response.status === 422) {
           var errors = err.response.data.errors;
           Object.keys(errors).forEach(function (error) {
-            _this3.errors[error].show = true;
-            _this3.errors[error].message = errors[error][0];
+            _this4.errors[error].show = true;
+            _this4.errors[error].message = errors[error][0];
           });
         } else {
           _lib_Toast__WEBPACK_IMPORTED_MODULE_2__["default"].error("Something went wrong please try again");
         }
       }).finally(function (res) {
-        _this3.addingTeacher = false;
+        _this4.addingTeacher = false;
       });
     },
     editTeacher: function editTeacher(teacher, index) {
@@ -13714,7 +13727,7 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       this.currentId = id;
     },
     updatePassword: function updatePassword(event) {
-      var _this4 = this;
+      var _this5 = this;
 
       if (this.newPassword.value === '') {
         this.newPassword.showError = true;
@@ -13728,23 +13741,23 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         }, function (err) {
           _lib_Toast__WEBPACK_IMPORTED_MODULE_2__["default"].error("Oops something wrong password was not updated");
         }).finally(function () {
-          _this4.updatingPassword = false;
+          _this5.updatingPassword = false;
         });
       }
     },
     resetFormFields: function resetFormFields() {
-      var _this5 = this;
+      var _this6 = this;
 
       Object.keys(this.teacher).forEach(function (key) {
-        _this5.teacher[key] = '';
+        _this6.teacher[key] = '';
       });
     },
     clearErrors: function clearErrors() {
-      var _this6 = this;
+      var _this7 = this;
 
       Object.keys(this.errors).forEach(function (err) {
-        _this6.errors[err].message = '';
-        _this6.errors[err].show = false;
+        _this7.errors[err].message = '';
+        _this7.errors[err].show = false;
       });
     }
   },

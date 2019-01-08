@@ -32,7 +32,7 @@
                 <button type="button" @click="changePassword(teacher.id)" title="Change Password" rel="tooltip" class="btn btn-success btn-sm btn-icon">
                     <i class="now-ui-icons ui-2_settings-90"></i>
                 </button>
-                <button type="button"  title="Delete Record" rel="tooltip" class="btn btn-danger btn-sm btn-icon">
+                <button type="button"  @click="deleteTeacher(index)" title="Delete Record" rel="tooltip" class="btn btn-danger btn-sm btn-icon">
                     <i class="now-ui-icons ui-1_simple-remove"></i>
                 </button>
             </td>

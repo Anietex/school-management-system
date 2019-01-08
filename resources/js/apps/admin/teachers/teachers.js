@@ -65,7 +65,7 @@ let vm = new Vue({
 
         submitForm(event){
             if(this.newRecord){
-                this.addingTeacher(event);
+                this.addTeacher(event);
             }else {
                 this.updateTeacher(event);
             }
@@ -121,8 +121,18 @@ let vm = new Vue({
         },
 
 
-        deleteTeacher(){
-
+        deleteTeacher(index){
+            if(confirm("Do you want to delete student")){
+                let teacher = this.teachers[index];
+                http.delete("teachers/"+teacher.id)
+                    .then((res)=>{
+                            Toast.success("Record deleted successfully");
+                            this.teachers.splice(index,1);
+                        },
+                        (err)=>{
+                            Toast.error("Oops something went wrong");
+                        })
+            }
         },
 
         updateTeacher(event){

@@ -116,6 +116,11 @@ class TeachersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(Teacher::destroy($id)){
+            return response()->json(["message"=>"teacher deleted"]);
+        }
+
+        return response()->json(["message"=>"teacher not deleted"],500);
+
     }
 }
