@@ -25,5 +25,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(["prefix"=>"admin","namespace"=>"Admin"],function (){
     Route::post("teachers/change_password/{id}","TeachersController@changePassword");
     Route::resource('teachers', 'TeachersController');
+    Route::resource("students","StudentController");
 
 });
