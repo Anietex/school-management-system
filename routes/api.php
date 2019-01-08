@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,15 @@ use Illuminate\Http\Request;
 |
 */
 
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::group(["prefix"=>"admin","namespace"=>"Admin"],function (){
+    Route::post("teachers/change_password/{id}","TeachersController@changePassword");
+    Route::resource('teachers', 'TeachersController');
+
 });

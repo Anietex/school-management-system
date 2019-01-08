@@ -6,18 +6,24 @@
     {{--<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">--}}
     {{--<link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">--}}
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="app-url" content="{{ url('/') }}">
+
+
     <title>
-       @yield('title') - School Management System
+        @yield('title') - School Management System
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    {{--<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />--}}
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- CSS Files -->
     <link  rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"  />
     <link rel="stylesheet" href="{{ asset('assets/css/now-ui-dashboard.css?v=1.2.0') }}"  />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="{{ asset('assets/demo/demo.css') }}"  />
+    <link rel="stylesheet" href="{{ asset('css/native-toast.css') }}"  />
+
 </head>
 
 <body class="">
@@ -31,7 +37,7 @@
                 SMS
             </a>
             <a href="#" class="simple-text logo-normal">
-               SCH-MGT-SYS
+                SCH-MGT-SYS
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -72,24 +78,25 @@
                         <p>Subject Allocations</p>
                     </a>
                 </li>
+
                 <li>
-                    <a href="./typography.html">
+                    <a href="{{url('admin/library_users')}}">
                         <i class="now-ui-icons text_caps-small"></i>
-                        <p>Departments</p>
+                        <p>Library Users</p>
                     </a>
                 </li>
 
                 <li>
-                    <a href="./typography.html">
+                    <a href="{{url('admin/payments')}}">
                         <i class="now-ui-icons business_money-coins"></i>
                         <p>Payments</p>
                     </a>
                 </li>
                 {{--<li class="active-pro">--}}
-                    {{--<a href="./upgrade.html">--}}
-                        {{--<i class="now-ui-icons arrows-1_cloud-download-93"></i>--}}
-                        {{--<p>Upgrade to PRO</p>--}}
-                    {{--</a>--}}
+                {{--<a href="./upgrade.html">--}}
+                {{--<i class="now-ui-icons arrows-1_cloud-download-93"></i>--}}
+                {{--<p>Upgrade to PRO</p>--}}
+                {{--</a>--}}
                 {{--</li>--}}
             </ul>
         </div>
@@ -115,22 +122,22 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     {{--<form>--}}
-                        {{--<div class="input-group no-border">--}}
-                            {{--<input type="text" value="" class="form-control" placeholder="Search...">--}}
-                            {{--<div class="input-group-append">--}}
-                                {{--<div class="input-group-text">--}}
-                                    {{--<i class="now-ui-icons ui-1_zoom-bold"></i>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+                    {{--<div class="input-group no-border">--}}
+                    {{--<input type="text" value="" class="form-control" placeholder="Search...">--}}
+                    {{--<div class="input-group-append">--}}
+                    {{--<div class="input-group-text">--}}
+                    {{--<i class="now-ui-icons ui-1_zoom-bold"></i>--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
                     {{--</form>--}}
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             {{--<a class="nav-link" href="#pablo">--}}
-                                {{--<i class="now-ui-icons media-2_sound-wave"></i>--}}
-                                {{--<p>--}}
-                                    {{--<span class="d-lg-none d-md-block">Stats</span>--}}
-                                {{--</p>--}}
+                            {{--<i class="now-ui-icons media-2_sound-wave"></i>--}}
+                            {{--<p>--}}
+                            {{--<span class="d-lg-none d-md-block">Stats</span>--}}
+                            {{--</p>--}}
                             {{--</a>--}}
                         </li>
                         <li class="nav-item dropdown">
@@ -161,7 +168,7 @@
         <!-- End Navbar -->
         <div class="panel-header panel-header-sm">
         </div>
-        <div class="content">
+        <div class="content" id="app">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -179,7 +186,7 @@
 
                         </div>
                         <div class="card-body">
-                                @yield('content')
+                            @yield('content')
                         </div>
                     </div>
                 </div>
@@ -195,25 +202,26 @@
     </div>
 </div>
 <!--   Core JS Files   -->
-<script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
-<script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
-<script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-<!-- Chart JS -->
-<script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
-<!--  Notifications Plugin    -->
-<script src="{{ asset('assets/js/plugins/bootstrap-notify.js') }}"></script>
-<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="{{ asset('assets/js/now-ui-dashboard.min.js?v=1.2.0') }}" ></script>
-<!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-<script src="{{ asset('assets/demo/demo.js') }}"></script>
+@section('scripts')
+    <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
+    <!--  Google Maps Plugin    -->
+    {{--<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>--}}
+    <!-- Chart JS -->
+    <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
+    <!--  Notifications Plugin    -->
+    <script src="{{ asset('assets/js/plugins/bootstrap-notify.js') }}"></script>
+    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="{{ asset('assets/js/now-ui-dashboard.min.js?v=1.2.0') }}" ></script>
+    <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+    <script src="{{ asset('assets/demo/demo.js') }}"></script>
+@show
 <script>
     $(document).ready(function() {
         // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
-
+        // demo.initDashboardPageCharts();
     });
 
     $(".sidebar-wrapper a").each(function (index,elm) {
@@ -223,7 +231,7 @@
         }
     })
 
-    // alert()
+
 
 
 </script>

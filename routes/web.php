@@ -18,13 +18,15 @@ Route::get('/', function () {
 });
 
 
-Route::group(["prefix"=>"admin"],function(){
+Route::group(["prefix"=>"admin",'namespace'=>'Admin'],function(){
    Route::get("/dashboard","AdminController@dashboard");
    Route::get("/teachers","AdminController@teachers");
    Route::get("/students","AdminController@students");
    Route::get("/classes","AdminController@classes");
    Route::get("/sessions","AdminController@sessions");
    Route::get("/subject_allocation","AdminController@subjectAllocation");
+   Route::get("/library_users","AdminController@libraryUsers");
+   Route::get("/payments","AdminController@payments");
 
 });
 
